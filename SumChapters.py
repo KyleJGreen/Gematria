@@ -30,7 +30,7 @@ def getLines(text):
     # iterate throuh text in reverse order, parsing on digits and adding to list of lines
     for char in reversed(text):
         # ommit newline characters
-        if char == '\n':
+        if char == '\n' or char == 'v':
             continue
         # parse on digits
         if char.isdigit():
@@ -101,9 +101,9 @@ def removeFooter(bookDictList):
     for paragraph in bookDictList["Genesis50"]:
         parLine = []
         for word in paragraph:
-            if 'mainmenu[Exodus][Leviticus][Numbers][Deuteronomy]bookmenu' in word:
+            if 'mainmenu[Exodus][Leiticus][Numbers][Deuteronomy]bookmenu' in word:
                 parLine.append(
-                    word.replace('mainmenu[Exodus][Leviticus][Numbers][Deuteronomy]bookmenu', ''))  # remove footer
+                    word.replace('mainmenu[Exodus][Leiticus][Numbers][Deuteronomy]bookmenu', ''))  # remove footer
             else:
                 parLine.append(word)
         else:
@@ -141,6 +141,7 @@ def sumParagraphs(bookDictNumeric):
 
     # for each paragraph in each chapter, sum the numeric scores for each word and add to new dictionary
     for chapter in bookDictNumeric:
+        sums = [] # reset sums
         for par in bookDictNumeric[chapter]:
             sum = 0
             # for each word, add to the sum
@@ -205,7 +206,7 @@ def main():
     bookDictParSums = sumParagraphs(bookDictNumeric)  # sum the paragraphs
     bookDictChpSums = sumChapters(bookDictParSums)  # sum the chapters
 
-    # prepare to be weirded out
+    # print chapter sums
     for chapter in bookDictChpSums:
         print bookDictChpSums[chapter]
 
