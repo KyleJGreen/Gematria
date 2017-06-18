@@ -165,6 +165,13 @@ def sumChapters(bookDictParSums):
 
     return bookDictChpSums
 
+def sumBook(bookDictChpSums):
+    sum = 0
+    # sum all chapters
+    for chapter in bookDictChpSums:
+        sum += bookDictChpSums[chapter]
+
+    return sum
 
 def main():
     # variables
@@ -177,19 +184,16 @@ def main():
                    'd': 4,
                    'h': 5,
                    'w': 6,
-                   'v': 6,
                    'z': 7,
                    'j': 8,
                    'f': 9,
                    'y': 10,
-                   'i': 10,
                    'k': 20,
                    'l': 30,
                    'm': 40,
                    'n': 50,
                    's': 60,
                    'o': 70,
-                   'u': 70,
                    '[': 70,
                    'p': 80,
                    'x': 90,
@@ -205,9 +209,8 @@ def main():
     bookDictNumeric = convertToNumeric(bookDictList, numCorrDict)  # apply Qabalistic correspondences to words
     bookDictParSums = sumParagraphs(bookDictNumeric)  # sum the paragraphs
     bookDictChpSums = sumChapters(bookDictParSums)  # sum the chapters
+    bookSum = sumBook(bookDictChpSums)  # sum the book
 
-    # print chapter sums
-    for chapter in bookDictChpSums:
-        print bookDictChpSums[chapter]
+    print(bookSum)
 
 if __name__ == '__main__': main()
