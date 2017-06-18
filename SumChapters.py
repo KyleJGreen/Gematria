@@ -22,7 +22,7 @@ def getPage(url):
 
     return text  # return the text
 
-
+# parses text into lines
 def getLines(text):
     line = ""
     lines = []
