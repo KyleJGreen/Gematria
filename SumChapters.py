@@ -1,17 +1,16 @@
 from collections import OrderedDict
 import DictBuildFunctions
 import GematriaFunctions
+import TemurahFunctions
 import IOFunctions
 import collections
-
+import pandas as pd
 
 def main():
     # variables
     BOOK = "Genesis"
     BOOK_HEBREW = "Bereshith"
-    url = "https://www.crowndiamond.org/cd/genesis.html"
     books = ["genesis", "exodus", "leviticus", "numbers", "deuteronomy"]
-    #TODO Rewrite as orderd dict
     num_corr_dict = collections.OrderedDict([('a', 1),
     ('b', 2),
     ('g', 3),
@@ -48,15 +47,27 @@ def main():
         DictBuildFunctions.makeReportDicts(words_alpha, num_corr_dict, book_dict_list, BOOK)
 
     # GEMATRIA
-    book_dict_gematria = GematriaFunctions.convertToGematria(book_dict_list, num_corr_dict)  # apply Qabalistic correspondences to words
+    book_dict_gematria = GematriaFunctions.convertToGematria(book_dict_list, num_corr_dict)  # apply Qabalistic # correspondences to words
     gematria_par_sums = GematriaFunctions.sumParagraphs(book_dict_gematria)  # sum the paragraphs
     gematria_chp_sums = GematriaFunctions.sumChapters(gematria_par_sums)  # sum the chapters
-    bookGematira = GematriaFunctions.sumBook(gematria_chp_sums)  # sum the book
+    book_gematira = GematriaFunctions.sumBook(gematria_chp_sums)  # sum the book
 
     # NUMEROLOGY
     book_dict_numerology = GematriaFunctions.convertToNumerological(book_dict_list, num_corr_dict)
     numerology_par_sums = GematriaFunctions.sumParagraphs(book_dict_numerology)  # sum the paragraphs
     numerology_chp_sums = GematriaFunctions.sumChapters(numerology_par_sums)  # sum the chapters
-    bookNumerology = GematriaFunctions.sumBook(numerology_chp_sums)  # sum the book
-    
+    book_numerology = GematriaFunctions.sumBook(numerology_chp_sums)  # sum the book
+
+    # GENERATE REPORTS
+    # pd.DataFrame(alpha_dict).T.to_excel('Reports/Words-AlphabeticalReport.xls')
+    # pd.DataFrame(gematria_dict).T.to_excel('Reports/Words-GematriaReport.xls')
+    # pd.DataFrame(numerology_dict).T.to_excel('Reports/Words-NumerologyReport.xls')
+    # pd.DataFrame(gematria_par_sums).T.to_excel('Reports/GematriaParagraphsReportReport.xls')
+    # pd.DataFrame(gematria_chp_sums).T.to_excel('Reports/GematriaChapersReport.xls')
+    # pd.DataFrame(numerology_par_sums).T.to_excel('Reports/NumerologyParagraphsReport.xls')
+    # pd.DataFrame(numerology_chp_sums).T.to_excel('Reports/NumerologyChaptersReport.xls')
+
+    print(GematriaFunctions.getDigitSums(book_gematira))
+    print(GematriaFunctions.getDigitSums(book_numerology))
+
 if __name__ == '__main__': main()

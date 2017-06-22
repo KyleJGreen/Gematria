@@ -110,3 +110,10 @@ def getNumerologicalValue(letter, num_corr_dict):
         return num_corr_dict.keys().index(letter) + 1
     else:
         return num_corr_dict.keys().index(letter)
+
+def printCorrespondenceTable(num_corr_dict):
+    print('letter : numerology : gematria : digit sum')
+    for i, letter in enumerate(num_corr_dict):
+        numerological_value = getNumerologicalValue(letter, num_corr_dict)
+        print(letter + ' : ' + str(numerological_value) + ' : ' + str(num_corr_dict[letter]) + ' : '
+              + str(getDigitSums(numerological_value)[len(getDigitSums(numerological_value)) - 1]))
