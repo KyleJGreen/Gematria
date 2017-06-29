@@ -1,3 +1,7 @@
+NEXT UP:
+- scale out to work with all books
+- figure out what Temurah Bob uses and traverse his dictionary
+
 Notariqon:
 Notariqon is derived from the Latin word notarius, a shorthand writer. Of Notariqon there are
 two forms.
@@ -13,7 +17,7 @@ Torah, “In the beginning the Elohim saw that Israel would accept the Law.”
 The second form of Notariqon is the exact reverse of the first. By this the initial or finals or
 both, or the medials, of a sentence, are taken to form a word or words. Thus the Qabalah is
 called hrtsn hmkj, Chokham Nesethrah, “the secret wisdom”; and if we take the initials of
-these two words j and n we form by the second kind of Notariqon the word }j, Chen, “grace.”5
+these two words j and n we form by the second kind of Notariqon the word }j, Chen, “grace.”
 Similarly, from the initials and finals of the words hmymch wnl hluy ym, Mi Iaulah Leno haShamayimah,
 “Who shall go up to heaven?” (Deuteronomy xxx, 12) are forms hlym, Milah,
 “Circumcision,” and hwhy, the Tetragrammaton, implying that God hath ordained circumcision
