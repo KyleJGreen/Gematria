@@ -3,6 +3,9 @@ import urllib
 from bs4 import BeautifulSoup
 
 ## copies book from html file on crowndiamond.org to new file in Books/
+import sys
+
+
 def copyBook(book):
     url = 'https://www.crowndiamond.org/cd/' + book + '.html' # the url from which we are copying
     text = getBookFromUrl(url)
@@ -37,6 +40,7 @@ def getBookFromText(book):
     # write file to memory, replacing newline characters, v's and footer with empty string
     with open(path, 'r') as f:
         text = f.read().replace('\n', '').replace('v', '')
+        text = text.replace('Leiticus', 'Leviticus')
     return text
 
 def getLines(text):
@@ -51,7 +55,7 @@ def getLines(text):
         # parse on digits
         if char.isdigit():
             if line is not "":
-                lines.insert(0, line)  # insert line to beginning of list
+                lines.insert(0, line.replace('Leiticus', 'Leviticus'))  # insert line to beginning of list
                 line = ""  # reset line
         else:
             line = char + line

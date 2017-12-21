@@ -1,8 +1,14 @@
+import sys
+
 def getWordscoreGematria(word, num_corr_dict):
     wordscore_gematria = 0
     # for each character in a word, compute its score and add it to the total for the word
     for char in word:
-        wordscore_gematria += num_corr_dict[char.lower()]  # add char score to word total
+        try:
+            wordscore_gematria += num_corr_dict[char.lower()]  # add char score to word total
+        except:
+            print(word)
+            sys.exit()
     return wordscore_gematria
 
 # apply Qabalistic correspondences to words in dictionary
