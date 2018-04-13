@@ -1,3 +1,4 @@
+## AUTHOR: https://github.com/c0z3n
 # coding: utf-8
 from collections import defaultdict
 import random
